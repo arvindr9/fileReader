@@ -1,8 +1,8 @@
-window.onload = function() {
+/*window.onload = function() {
     const fileDisplayArea = document.getElementById('fileDisplayArea');
 
     const file = new File(null, "../hello.txt");
-    const textType = /text.*/;
+    const textType = /text.*//*;
     
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -10,4 +10,13 @@ window.onload = function() {
     }
     reader.readAsText(file);	
     
-}
+}*/
+window.onload = function() {
+    const fileDisplayArea = document.getElementById('fileDisplayArea');
+    
+	fetch('../hello.txt')
+	.then(function(response) {
+		return response.text()
+	}).then(function(body) {
+		fileDisplayArea.textContent = body
+	})};
